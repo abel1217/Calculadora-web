@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caluladora Web</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="appCalculator">
+        <form name="calculator">
+            <input type="textfield" name="ans" value="" autocomplete="off" readonly>
+
+            <input type="button" value="7" onclick="document.calculator.ans.value+='7'">
+            <input type="button" value="8" onclick="document.calculator.ans.value+='8'">
+            <input type="button" value="9" onclick="document.calculator.ans.value+='9'">
+            <input type="button" value="+" class="blue" onclick="document.calculator.ans.value+='+'">
+            <br>
+                <input type="button" value="4" onclick="document.calculator.ans.value+='4'">
+                <input type="button" value="5" onclick="document.calculator.ans.value+='5'">
+                <input type="button" value="6" onclick="document.calculator.ans.value+='6'">
+                <input type="button" value="-" class="blue" onclick="document.calculator.ans.value+='-'">
+            <br>
+                <input type="button" value="1" onclick="document.calculator.ans.value+='1'">
+                <input type="button" value="2" onclick="document.calculator.ans.value+='2'">
+                <input type="button" value="3" onclick="document.calculator.ans.value+='3'">
+                <input type="button" value="X" class="blue" onclick="document.calculator.ans.value+='*'">
+            <br>
+                <input type="button" value="0" onclick="document.calculator.ans.value+='0'">
+                <input type="reset" value="C" class="limpiar">
+                <input type="button" value="=" class="igual" id="btnIgual" onclick="document.calculator.ans.value=eval(document.calculator.ans.value); agregarOperacion()" >
+                <input type="button" value="/" class="blue" onclick="document.calculator.ans.value+='/'">
+
+
+
+
+        </form>
+    </div> 
+    <div id="historial-container">
+        <h2>Historial</h2>
+        <ul id="historial"></ul>
+    </div>
+
+    <script>
+       
+       var resultado = document.getElementById('btnIgual');
+
+        btnIgual.addEventListener('click', function() {
+        var resultado = eval(document.calculator.ans.value);
+        console.log(resultado); // Puedes utilizar la variable "resultado" como desees
+        }); 
+
+        var historial = localStorage.getItem('historial');
+            if (!historial) {
+            historial = [];
+            } else {
+            historial = JSON.parse(historial);
+            }
+
+            historial.push(resultado);
+
+            localStorage.setItem('historial', JSON.stringify(historial));
+
+            if (!historial) {
+                historial = [];
+                } else {
+                historial = JSON.parse(historial);
+                }
+
+                if (historial.length === 0) {
+                document.getElementById('historial-container').innerHTML = 'No hay registros guardados.';
+                }
+
+                else {
+                    var html = '';
+                    for (var i = 0; i < historial.length; i++) {
+                        html += '<div>' + historial[i] + '</div>';
+                    }
+                    document.getElementById('historial-container').innerHTML = html;
+                    }
+
+
+
+    </script>
+
+
+    
+</body>
+</html>

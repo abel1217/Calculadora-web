@@ -1,0 +1,55 @@
+#appCalculator {
+    height: 470px;
+    width: 300px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+#appCalculator form {
+    height: 100%;
+    width: 100%;
+    background-color: black;
+}
+
+#appCalculator input[type="textfield"] {
+    height: 25%;
+    width: 99%;
+    cursor: default;
+    font-family: 'Roboto', sans-serif;
+    background-color: black;
+    color: white;
+
+
+    text-align: right;
+    font-size: 50px;
+    border: 0;
+    outline: none;
+}
+
+#appCalculator input[type=button], input[type=reset] {
+    width: 22%;
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    color: black;
+    font-size: 26px;
+    padding: 18px;
+    margin: 3px;
+    border: 0;
+    border-radius: 100%;
+}
+
+.blue {
+    background-color: #2980b9;
+    color: white;
+}
+
+.igual {
+    background-color: #d35400;
+    color: white;
+}
+
+.limpiar {
+    background-color: #e67e22;
+    color: white;
+}
